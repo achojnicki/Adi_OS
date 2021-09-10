@@ -82,7 +82,7 @@ def get_loop_device(image_filename):
         pass
     raise Exception('cannot find loop device')
 
-def format(loop_device,filesystem='ext2'):
+def format(loop_device,filesystem='ext4'):
     msg="Creating filesystem"
     print(msg)
 

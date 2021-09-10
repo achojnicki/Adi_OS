@@ -33,7 +33,11 @@ def create_vbox_virtual_machine(vbox_machine_name, vbox_machine_dir,vbox_disk_fi
 		vbox_machine_name=vbox_machine_name,
 		vbox_machine_dir=vbox_machine_dir)
 	system(cmd)
-
+	
+	cmd=""" VBoxManage modifyvm "{vbox_machine_name}" --memory 1024 """.format(
+		vbox_machine_name=vbox_machine_name)
+	system(cmd)
+	
 	cmd="""VBoxManage storagectl "{vbox_machine_name}" --name "SATA Controller" --add sata --controller IntelAhci""".format(
 		vbox_machine_name=vbox_machine_name)
 	system(cmd)
