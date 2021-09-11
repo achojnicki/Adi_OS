@@ -60,3 +60,10 @@ def start_vbox_machine(vbox_machine_name):
 	cmd='VBoxManage startvm "{vbox_machine_name}"'.format(
 		vbox_machine_name=vbox_machine_name)
 	system(cmd)
+
+def convert_vbox_image(loop_device,vbox_generated_disk_file):
+	cmd='VBoxManage convertfromraw {loop_device} "{vbox_generated_disk_file}" --format VDI"'.format(
+		vbox_generated_disk_file=vbox_generated_disk_file,
+		loop_device=loop_device)
+
+	system(cmd)
