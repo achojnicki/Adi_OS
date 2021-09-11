@@ -1,9 +1,7 @@
-
-
-WORKING_DIR="/home/adrian/Dev/Adi_OS/image"
+WORKING_DIR="/root/Adi_OS/image"
 
 IMAGE_FILENAME="adios.img"
-IMAGE_FILE_SIZE=6000
+IMAGE_FILE_SIZE=2000
 
 BUILD_DIR='./build'
 ROOT_DIR='./root'
