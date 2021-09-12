@@ -1,0 +1,5 @@
+#!/bin/micropython
+
+import os
+
+os.system('/bin/sh')
