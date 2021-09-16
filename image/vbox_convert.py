@@ -5,7 +5,6 @@ from constants import *
 
 
 check_permissions()
-check_dirs(ROOT_DIR)
 update_path()
 
 attach_image(IMAGE_FILENAME)

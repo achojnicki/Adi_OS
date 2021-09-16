@@ -5,7 +5,6 @@ from constants import *
 
 
 check_permissions()
-check_dirs(ROOT_DIR)
 update_path()
 try:
 	remove_vbox_disk_file(VBOX_DISK_FILE)

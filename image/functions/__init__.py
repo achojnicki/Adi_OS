@@ -11,13 +11,6 @@ import json
 import shutil
 
 
-def check_dirs(root_dir):
-    if not root_dir.replace('./','') in os.listdir():
-        msg='cd...'
-        print(msg)
-
-        sys.exit(0)
-
 def check_permissions():
     msg="Checking permissions..."
     print(msg)
@@ -73,6 +66,7 @@ def get_loop_device(image_filename):
     cmd='losetup -J'
     process=subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
     output=process.communicate()[0]
+
     try:
         data=json.loads(output)['loopdevices']
         for a in data:
@@ -80,6 +74,7 @@ def get_loop_device(image_filename):
                 return a['name']
     except:
         pass
+
     raise Exception('cannot find loop device')
 
 def format(loop_device,filesystem='ext4'):
@@ -97,19 +92,22 @@ def mount(loop_device,mount_point):
     system(cmd)
 
 def umount(loop_device):
-    msg="umounting image"
+    msg="umounting loop device"
     print(msg)
 
     cmd="""umount {loop_device}""".format(loop_device=loop_device)
     system(cmd)
 
-def install_boot_image(boot_dir,loop_device,working_dir):
+def install_boot_image(boot_dir,loop_device):
+    d=os.getcwd()
     os.chdir(boot_dir)
+
     cmd="""../../tools/extlinux.x64 --instal ./ --device {loop_device}""".format(
         loop_device=loop_device,
         )
     system(cmd)
-    os.chdir(working_dir)
+
+    os.chdir(d)
 
 def copy_file(src, dest):
     cmd="""cp "{src}" "{dest}" """.format(
@@ -122,4 +120,8 @@ def copy_files(src, dest):
         src=src,
         dest=dest)
     system(cmd)
+
+def build_dir_structure(ROOT_DIR):
+    os.chdir(ROOT_DIR)
+
     
