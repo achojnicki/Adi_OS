@@ -6,6 +6,7 @@ IMAGE_FILE_SIZE=2000
 BUILD_DIR='./_build'
 ROOT_DIR='../rootfs'
 BOOT_DIR='./_build/boot/'
+MODULES_DIR='/lib/modules/5.15.0-rc1+'
 
 
 VMLINUZ_LOCATION='./_build/boot/vmlinuz'
