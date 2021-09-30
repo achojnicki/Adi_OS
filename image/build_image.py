@@ -21,12 +21,12 @@ mount(loop_device,BUILD_DIR)
 
 copy_files(ROOT_DIR,BUILD_DIR)
 
-#new kernel - no boot
+#bzimage and initramfs
 copy_file('../linux/arch/x86/boot/bzImage',VMLINUZ_LOCATION)
 copy_file('/boot/initrd.img-5.15.0-rc1+',INITRD_LOCATION)
 
 #copy kernel modules
-#copy_files(MODULES_DIR,BUILD_DIR+'/lib/modules/4.19.204')
+copy_files(MODULES_DIR,BUILD_DIR+'/lib/modules/5.15.0-rc1+')
 
 install_boot_image(BOOT_DIR,loop_device)
 
