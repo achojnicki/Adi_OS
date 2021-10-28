@@ -1,0 +1,13 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include
+datadir=${prefix}/share
+pkgdatadir=${prefix}/share/ibus
+
+Name: IBus
+Description: IBus Library
+Version: 1.5.19
+Requires: gobject-2.0 gio-2.0
+Libs: -L${libdir} -libus-1.0
+Cflags: -I${includedir}/ibus-1.0
