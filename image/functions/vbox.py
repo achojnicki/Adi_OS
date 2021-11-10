@@ -34,7 +34,7 @@ def create_vbox_virtual_machine(vbox_machine_name, vbox_machine_dir,vbox_disk_fi
 		vbox_machine_dir=vbox_machine_dir)
 	system(cmd)
 	
-	cmd=""" VBoxManage modifyvm "{vbox_machine_name}" --memory 1024 """.format(
+	cmd=""" VBoxManage modifyvm "{vbox_machine_name}" --memory 4096 """.format(
 		vbox_machine_name=vbox_machine_name)
 	system(cmd)
 	
